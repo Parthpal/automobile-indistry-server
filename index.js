@@ -4,8 +4,17 @@ var cors = require('cors')
 const app = express()
 const port = process.env.PORT || 3000;
 
-app.use(cors())
+//app.use(cors())
+//app.use(express.json());
 app.use(express.json());
+const corsConfig = {
+origin: '*',
+credentials: true,
+methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
+}
+app.use(cors(corsConfig))
+
+
 
 const uri = "mongodb+srv://palppartha:pal610676@cluster0.kf7gnio.mongodb.net/?retryWrites=true&w=majority";
 
